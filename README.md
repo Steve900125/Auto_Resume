@@ -15,3 +15,5 @@ main.py :
 openai_check.py :
     Check you have been install "openai".
     If not it will help you auto install.
+	
+# 榮哥測試push一下柏權的大倉庫
