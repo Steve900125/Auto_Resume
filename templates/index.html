@@ -1,18 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Index</title>
+    <meta charset="utf-8">
+    <title>雲端期末Demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 </head>
 <body>
-    Quetion1:<input type="text" id="Question1"><br>
-    Quetion2:<input type="text" id="Question2"><br>
-    Quetion3:<input type="text" id="Question3"><br>
-    Quetion4:<input type="text" id="Question4"><br>
-    Quetion5:<input type="text" id="Question5"><br>
-    <button id="btn_submit">點擊送出</button>
-    
-    <p id="Get_Result">Answer1<p>
+    <!--上方導航欄位-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light navbar-text me-auto" href="#">
+                <img src="/static/images/cat.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                Auto Resume Generator
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></button>
+        </div>
+    </nav>
+    <div class="container-fluid  bd-layout">
+       <!--建立一個row，這樣下方的欄位才能用col切開(col 1、2、3)-->
+        <div class="row flex-nowrap">
+            <!--水平欄位1(col 1) 用於管理版面左邊的導航欄樣式 -->
+            <div class="col-auto px-sm-2 px-0 bg-info">
+                <!--bootstrap 5 flex 用於排版、縮放, flex-column可以使子元素(這裡為button)轉為上下排列而不是左右排列。-->
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <ul class="list-unstyled mb-0 py-3 pt-md-1">
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-link ms-1 d-none d-sm-inline fw-bold fs-5 text-white" onclick="showAboutmeText()">About me</button>
+                        </li>
+                        <li><button type="button" class="btn btn-link ms-1 d-none d-sm-inline fw-bold fs-5 text-white" onclick="hideAboutmeText()">Work</button></li>
+                        <li>
+                            <a href="https://youtu.be/dQw4w9WgXcQ" class="nav-link align-middle px-0" target="_blank">
+                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">TEST</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--col 2 用於輸入文本與輸出結果欄位樣式，style原先以block表示，當在導航欄按下About me就會轉成none表示-->
+            <div class="col py-3" id="workArea" style="display: block;">
+                <div class="col-5">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Question1</span>
+                        </div>
+                        <textarea id="Question1" class="form-control" aria-label="With textarea" rows="5" cols="33"></textarea>
+                    </div><br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Question2</span>
+                        </div>
+                        <textarea id="Question2" class="form-control" aria-label="With textarea" rows="5" cols="33"></textarea>
+                    </div><br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Question3</span>
+                        </div>
+                        <textarea id="Question3" class="form-control" aria-label="With textarea" rows="5" cols="33"></textarea>
+                    </div><br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Question4</span>
+                        </div>
+                        <textarea id="Question4" class="form-control" aria-label="With textarea" rows="5" cols="33"></textarea>
+                    </div><br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Question5</span>
+                        </div>
+                        <textarea id="Question5" class="form-control" aria-label="With textarea" rows="5" cols="33"></textarea>
+                    </div><br>
+                    <!--按鈕樣式div 你要傳出資料就的按鈕-->
+                    <!--之後可能要加一的判斷資料是否為空，若空則顯示一串文字之類的-->
+                    <div class="d-grid mx-5 gap-3">
+                        <button class="btn btn-primary btn-sm btn-success " type="submit" value="傳送資料" onclick="CheckOn();">確認</button>
+                        <button class="btn btn-primary btn-sm btn-success " type="submit" value="清空資料" onclick="CheckClear();">清空</button>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <label>Output :</label>
+                    <br>
+                    <div class="input-group mb-3">
+                        <textarea class="form-control fw-bold" style="height: 500px; resize: none " aria-label="With textarea" placeholder="您的結果會顯示在這裡..." name="outputValue" id="Get_Result" readonly></textarea>
+                    </div>
+                </div>
+            </div>
+            <!--col3 用於介紹文本的樣式，style原先以none表示，當在導航欄按下Work就會轉成block表示-->
+            <div class="col py-3" id="aboutText" style="display: none;">
+                <div class="col-5">
+                    <label>關於我們 :</label>
+                    <br>
+                    <div class="input-group mb-3">
+                        <textarea class="form-control fw-bold" style="height: 500px; resize: none " aria-label="With textarea" placeholder="起司越大，洞就越多" name="outputValue" id="outputValue" readonly></textarea>
+                    </div>
+                    <label>How to use :</label>
+                    <br>
+                    <div class="input-group mb-3">
+                        <textarea class="form-control fw-bold" style="height: 500px; resize: none " aria-label="With textarea" placeholder="洞越多，起司越少" name="outputValue" id="outputValue" readonly></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- 引入内部JavaScript文件 -->
     <script  type="text/javascript" src="/static/js/index.js"></script>
 </body>
