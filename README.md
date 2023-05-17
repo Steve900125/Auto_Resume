@@ -1,3 +1,9 @@
+# 17.5.2023
+更新WebServer 
+使用前先下載Python的flask框架
+
+
+# 16.5.2023
 IMPORTANT ! 
 Put your ChatGPT API KEY in the "chatgpt_api.txt"
 
@@ -16,4 +22,3 @@ openai_check.py :
     Check you have been install "openai".
     If not it will help you auto install.
 	
-# 榮哥測試push一下柏權的大倉庫
