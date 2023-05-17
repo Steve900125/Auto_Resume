@@ -6,6 +6,7 @@ from GPT_Respond import get_infor
 from openai_check import check_openai_package
 
 import json
+import time
 
 
 # Start App
@@ -39,6 +40,7 @@ def ChatGPT():
         data4 = request.values['Question4']
         data5 = request.values['Question5']
         
+        
         # Prompting five times
         backend_prompt = "接下來我會給你一個數字，請你把這個數字加上100再告訴我答案"
         user_input = "data1是" + data1
@@ -63,14 +65,18 @@ def ChatGPT():
             # Prompting 5
             # answer5 = get_infor(backend_prompt , "data1是" + data5)
 
+            time.sleep(5)
+
         except :
             print("1. 請先確定 chatgpt_api.txt 已經放入個人 api key")
             print("2. 請先確定 openai 已經安裝成功")
         
+            
+        time.sleep(5)
         # JSON not finished
         Return_Data = {
             "Answer1":answer1,
-            "Answer2":answer2,
+            "Answer2":"null",
             "Answer3":"null",
             "Answer4":"null",
             "Answer5":"null"

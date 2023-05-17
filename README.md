@@ -1,3 +1,8 @@
+# 2023.5.17
+更新WebServer服務器
+
+
+# 2023.5.16
 IMPORTANT ! 
 Put your ChatGPT API KEY in the "chatgpt_api.txt"
 
@@ -15,5 +20,3 @@ main.py :
 openai_check.py :
     Check you have been install "openai".
     If not it will help you auto install.
-	
-# 榮哥push
