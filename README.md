@@ -13,6 +13,11 @@ pip install flask_cors
 pip install openai
 ```
 
+RUN server
+```
+python -u webserver
+```
+
 # 2023.5.16
 IMPORTANT ! 
 Put your ChatGPT API KEY in the "chatgpt_api.txt"
