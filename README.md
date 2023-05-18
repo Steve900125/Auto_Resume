@@ -27,11 +27,11 @@ Develope in Python 3.8 version
   "user_input" : Transform the user information into valuable insights using the backend_prompt.
 
 ### main.py :
-    You can test in here.
+  You can test in here.
     
 ### openai_check.py :
-    Check you have been install "openai".
-    If not it will help you auto install.
+  Check you have been install "openai".
+  If not it will help you auto install.
    
 # Git commit
 
