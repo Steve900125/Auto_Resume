@@ -13,9 +13,13 @@ pip install flask_cors
 pip install openai
 ```
 
-RUN server
+啟動 server
 ```
-python -u webserver
+python -u webserver.py
+```
+在瀏覽器輸入(flask default port 5000)
+```
+127.0.0.1:5000
 ```
 
 # 2023.5.16
