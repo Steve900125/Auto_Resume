@@ -28,11 +28,11 @@ Develope in Python 3.8 version
 
 ### main.py :
     You can test in here.
-
+    
 ### openai_check.py :
     Check you have been install "openai".
     If not it will help you auto install.
-    
+   
 # Git commit
 
 ### 下載專案
