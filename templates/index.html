@@ -2,33 +2,68 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>雲端期末Demo</title>
+    <title>雲端期末 Demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-</head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <!--字型-思源黑體操作:https://www.wfublog.com/2019/01/noto-sans-serif-traditional-chinese-web-font_11.html-->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&amp;display=swap" rel="stylesheet"/>
+    <!--減少網頁仔入時間用，還在測試-->
+    <style>
+        .anthorfont {
+        font-family: 'Noto Sans TC', '微軟正黑體', 'Microsoft JhengHei', sans-serif;
+        }
+    </style>
+</head>        
 <body>
     <!--上方導航欄位-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-dark" style="position: sticky;" aria-label="Secondary navigation">
         <div class="container-fluid">
-            <a class="navbar-brand text-light navbar-text me-auto" href="#">
+            <a class="navbar-brand text-light navbar-text fw-bold" href="#workArea">
                 <img src="/static/images/cat.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">
                 Auto Resume Generator
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></button>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav flex-row flex-wrap pt-auto text-white ms-2">
+                    <li class="nav-item">
+                        <a  href="#workArea" class="nav-link text-white mt-1" >滑動指定頁面</a>
+                    </li>
+                    <li class="nav-item pt-2">
+                        <button type="button" class="btn btn-link btn-sm d-none d-sm-inline fs-6 text-light" style="text-decoration: none;"onclick="hideAboutmeText()">功能</button>
+                    </li>
+                    <li class="nav-item pt-2">
+                        <button type="button" class="btn btn-link btn-sm d-none d-sm-inline fs-6 text-light" style="text-decoration: none;"onclick="showAboutmeText()">關於我們</button>
+                    </li>
+                </ul>
+            </div>
+            <button type="button" class="navbar-toggler text-body"  data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">關於我們</button>
         </div>
     </nav>
-    <div class="container-fluid  bd-layout">
+        <div class="jumbotron jumbotron-fluid bg-dark text-center p-5 border-top border-secondary">
+            <div class="container-xxl p-5" style="font-family: Noto Sans TC, sans-serif;">
+                <h1 class="text-white display-5">一個協助你完成書審資料的網站</h1>
+                <p class="text-white lead mx-auto" style="width: 650px;">是否還因為在申請外國學校時所需個人簡歷CV、個人陳述PS時感到煩惱 ? 這裡可以引導協助您一步一步的完成申請文書與自動產生個人陳述</p>
+                <a  href="#workArea" class="nav-link text-white p-3" ><u>立即開始</u>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8Zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5Z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <nav class="bd-subnavbar py-2 border-bottom" aria-label="Secondary navigation"></nav>
+    <div class="container-fluid  bd-light">
        <!--建立一個row，這樣下方的欄位才能用col切開(col 1、2、3)-->
         <div class="row flex-nowrap">
             <!--水平欄位1(col 1) 用於管理版面左邊的導航欄樣式 -->
-            <div class="col-auto px-sm-2 px-0 bg-info">
-                <!--bootstrap 5 flex 用於排版、縮放, flex-column可以使子元素(這裡為button)轉為上下排列而不是左右排列。-->
+            <!--bootstrap 5 flex 用於排版、縮放, flex-column可以使子元素(這裡為button)轉為上下排列而不是左右排列。-->
+            <!--廢案
+            <div class="col-auto px-sm-2 px-0 bg-light" name="aside">
+                
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                     <ul class="list-unstyled mb-0 py-3 pt-md-1">
                         <li class="nav-item">
-                            <button type="button" class="btn btn-link ms-1 d-none d-sm-inline fw-bold fs-5 text-white" onclick="showAboutmeText()">About me</button>
+                            <button type="button" class="btn btn-link ms-1 d-none d-sm-inline fw-bold fs-5 text-body" onclick="showAboutmeText()">About me</button>
                         </li>
-                        <li><button type="button" class="btn btn-link ms-1 d-none d-sm-inline fw-bold fs-5 text-white" onclick="hideAboutmeText()">Work</button></li>
+                        <li><button type="button" class="btn btn-link ms-1 d-none d-sm-inline fw-bold fs-5 text-body" onclick="hideAboutmeText()">Work</button></li>
                         <li>
                             <a href="https://youtu.be/dQw4w9WgXcQ" class="nav-link align-middle px-0" target="_blank">
                                 <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">TEST</span>
@@ -37,9 +72,10 @@
                     </ul>
                 </div>
             </div>
+            -->
             <!--col 2 用於輸入文本與輸出結果欄位樣式，style原先以block表示，當在導航欄按下About me就會轉成none表示-->
             <div class="col py-3" id="workArea" style="display: block;">
-                <div class="col-5">
+                <div class="col me-5">
                     <div class="input-group">
                         <div class="input-group-prepend">
                           <span class="input-group-text">Question1</span>
@@ -69,7 +105,7 @@
                           <span class="input-group-text">Question5</span>
                         </div>
                         <textarea id="Question5" class="form-control" aria-label="With textarea" rows="5" cols="33"></textarea>
-                    </div><br>
+                    </div><br>                 
                     <!--按鈕樣式div 你要傳出資料就的按鈕-->
                     <!--之後可能要加一的判斷資料是否為空，若空則顯示一串文字之類的-->
                     <div class="d-grid mx-5 gap-3">
