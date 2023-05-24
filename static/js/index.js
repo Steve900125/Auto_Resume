@@ -43,7 +43,19 @@ var btn_submit = document.getElementById("btn_submit");
 
 Get_Result.innerText = "Hello";
 
-// 匯熏的部分
+// 匯勛的部分
+document.getElementById('CheckOn').onclick = function() {CheckOn()};
+document.getElementById('actionClearAll').onclick = function() {actionClearAll()};
+
+//很醜，別這樣用
+document.getElementById('actionQ1').onclick = function() {actionClear(1)};
+document.getElementById('actionQ2').onclick = function() {actionClear(2)};
+document.getElementById('actionQ3').onclick = function() {actionClear(3)};
+document.getElementById('actionQ4').onclick = function() {actionClear(4)};
+document.getElementById('actionQ5').onclick = function() {actionClear(5)};
+
+
+//document.getElementById("actionClearAll").onclick = function() {actionClearAll()};
 //submit
 function CheckOn()
 {
@@ -80,21 +92,38 @@ function CheckOn()
     }
 }
 
-// 清空輸入欄位的資料
-function CheckClear()
+function actionClear(Question)
 {
-    document.getElementById("inputText").value = "";
-    document.getElementById("inputF2").value = "";
-    document.getElementById("inputF3").value ="",
-    document.getElementById("inputF4").value = "",
-    document.getElementById("inputF5").value = "";
-    document.getElementById("inputF6").value = "";
+    if (!Question) return 0;
+    
+    //Question1~5是index.html中的那5個textarea的輸入欄位id
+    //輸入的欄位有5個，判斷 actionQ1、2、3... 是哪一個按下清空按鈕，超醜
+    for (let i = 0; i <= 5; i++)
+    {
+        if (Question == i)
+        { 
+            document.getElementById('Question'+ i).value = "";
+            console.log('Question'+ i);//控制台
+            break;
+        }
+    }
+}
+
+
+// 清空輸入欄位的資料
+function actionClearAll()
+{
+    document.getElementById("Question1").value = "";
+    document.getElementById("Question2").value = "";
+    document.getElementById("Question3").value ="",
+    document.getElementById("Question4").value = "",
+    document.getElementById("Question5").value = "";
 }
 
 // 顯示Aboutme文本，隱藏Work文本
 function showAboutmeText()
 {
-    var workArea = document.getElementById('workArea');
+    var workArea = document.getElementById('action');
     var aboutText = document.getElementById('aboutText');
     if (aboutText.style.display == 'none')
     {
@@ -106,7 +135,7 @@ function showAboutmeText()
 // 顯示Work文本，隱藏Aboutme文本
 function hideAboutmeText()
 {
-    var workArea = document.getElementById('workArea');
+    var workArea = document.getElementById('action');
     var aboutText = document.getElementById('aboutText');
     if (aboutText.style.display == 'block')
     {

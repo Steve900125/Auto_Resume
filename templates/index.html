@@ -8,11 +8,12 @@
     <!--字型-思源黑體操作:https://www.wfublog.com/2019/01/noto-sans-serif-traditional-chinese-web-font_11.html-->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&amp;display=swap" rel="stylesheet"/>
     <!--減少網頁仔入時間用，還在測試-->
-    <style>
+<!--    <style>
         .anthorfont {
         font-family: 'Noto Sans TC', '微軟正黑體', 'Microsoft JhengHei', sans-serif;
         }
     </style>
+-->
 </head>        
 <body>
     <!--上方導航欄位-->
@@ -25,7 +26,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav flex-row flex-wrap pt-auto text-white ms-2">
                     <li class="nav-item">
-                        <a  href="#workArea" class="nav-link text-white mt-1" >滑動指定頁面</a>
+                        <a  href="#action" class="nav-link text-white mt-1" >滑動指定頁面</a>
                     </li>
                     <li class="nav-item pt-2">
                         <button type="button" class="btn btn-link btn-sm d-none d-sm-inline fs-6 text-light" style="text-decoration: none;"onclick="hideAboutmeText()">功能</button>
@@ -42,7 +43,7 @@
             <div class="container-xxl p-5" style="font-family: Noto Sans TC, sans-serif;">
                 <h1 class="text-white display-5">一個協助你完成書審資料的網站</h1>
                 <p class="text-white lead mx-auto" style="width: 650px;">是否還因為在申請外國學校時所需個人簡歷CV、個人陳述PS時感到煩惱 ? 這裡可以引導協助您一步一步的完成申請文書與自動產生個人陳述</p>
-                <a  href="#workArea" class="nav-link text-white p-3" ><u>立即開始</u>
+                <a  href="#action" class="nav-link text-white p-3"><u>立即開始</u>
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8Zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5Z"/>
                     </svg>
@@ -50,94 +51,153 @@
             </div>
         </div>
         <nav class="bd-subnavbar py-2 border-bottom" aria-label="Secondary navigation"></nav>
-    <div class="container-fluid  bd-light">
-       <!--建立一個row，這樣下方的欄位才能用col切開(col 1、2、3)-->
-        <div class="row flex-nowrap">
-            <!--水平欄位1(col 1) 用於管理版面左邊的導航欄樣式 -->
-            <!--bootstrap 5 flex 用於排版、縮放, flex-column可以使子元素(這裡為button)轉為上下排列而不是左右排列。-->
-            <!--廢案
-            <div class="col-auto px-sm-2 px-0 bg-light" name="aside">
-                
-                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                    <ul class="list-unstyled mb-0 py-3 pt-md-1">
-                        <li class="nav-item">
-                            <button type="button" class="btn btn-link ms-1 d-none d-sm-inline fw-bold fs-5 text-body" onclick="showAboutmeText()">About me</button>
-                        </li>
-                        <li><button type="button" class="btn btn-link ms-1 d-none d-sm-inline fw-bold fs-5 text-body" onclick="hideAboutmeText()">Work</button></li>
-                        <li>
-                            <a href="https://youtu.be/dQw4w9WgXcQ" class="nav-link align-middle px-0" target="_blank">
-                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">TEST</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            -->
-            <!--col 2 用於輸入文本與輸出結果欄位樣式，style原先以block表示，當在導航欄按下About me就會轉成none表示-->
-            <div class="col py-3" id="workArea" style="display: block;">
-                <div class="col me-5">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">Question1</span>
-                        </div>
-                        <textarea id="Question1" class="form-control" aria-label="With textarea" rows="5" cols="33"></textarea>
-                    </div><br>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">Question2</span>
-                        </div>
-                        <textarea id="Question2" class="form-control" aria-label="With textarea" rows="5" cols="33"></textarea>
-                    </div><br>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">Question3</span>
-                        </div>
-                        <textarea id="Question3" class="form-control" aria-label="With textarea" rows="5" cols="33"></textarea>
-                    </div><br>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">Question4</span>
-                        </div>
-                        <textarea id="Question4" class="form-control" aria-label="With textarea" rows="5" cols="33"></textarea>
-                    </div><br>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">Question5</span>
-                        </div>
-                        <textarea id="Question5" class="form-control" aria-label="With textarea" rows="5" cols="33"></textarea>
-                    </div><br>                 
-                    <!--按鈕樣式div 你要傳出資料就的按鈕-->
-                    <!--之後可能要加一的判斷資料是否為空，若空則顯示一串文字之類的-->
-                    <div class="d-grid mx-5 gap-3">
-                        <button class="btn btn-primary btn-sm btn-success " type="submit" value="傳送資料" onclick="CheckOn();">確認</button>
-                        <button class="btn btn-primary btn-sm btn-success " type="submit" value="清空資料" onclick="CheckClear();">清空</button>
-                    </div>
-                </div>
-                <div class="col-5">
-                    <label>Output :</label>
-                    <br>
-                    <div class="input-group mb-3">
-                        <textarea class="form-control fw-bold" style="height: 500px; resize: none " aria-label="With textarea" placeholder="您的結果會顯示在這裡..." name="outputValue" id="Get_Result" readonly></textarea>
-                    </div>
-                </div>
-            </div>
-            <!--col3 用於介紹文本的樣式，style原先以none表示，當在導航欄按下Work就會轉成block表示-->
-            <div class="col py-3" id="aboutText" style="display: none;">
-                <div class="col-5">
-                    <label>關於我們 :</label>
-                    <br>
-                    <div class="input-group mb-3">
-                        <textarea class="form-control fw-bold" style="height: 500px; resize: none " aria-label="With textarea" placeholder="起司越大，洞就越多" name="outputValue" id="outputValue" readonly></textarea>
-                    </div>
-                    <label>How to use :</label>
-                    <br>
-                    <div class="input-group mb-3">
-                        <textarea class="form-control fw-bold" style="height: 500px; resize: none " aria-label="With textarea" placeholder="洞越多，起司越少" name="outputValue" id="outputValue" readonly></textarea>
+        <div class="jumbotron jumbotron-fluid text-center text-secondary pt-5 m-5" style="font-family: Noto Sans TC, sans-serif;">
+            <h1 class="display-5">簡單幾個步驟，就可以完成</h1>
+            <p>在下方5個欄位中，依照需求將資料輸入進去，按下送出。稍等一會就會顯示結果囉 !</p>
+            <div class="container align-content-center my-5">
+                <div class="card align-content-center p-5">
+                    <div class="card-body">
+                        <label>Google廣告歡迎您:P</label>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="container align-content-center pb-1" id="action" style="display: block;">
+            <div class="row m-5">
+                <div class="col">
+                    <div class="card my-3" style="width: 32rem;">
+                        <div class="card-header">
+                            <ul class="nav nav-pills card-header-pills ps-2">
+                                <li class="nav-item">
+                                    <p class="text mb-0 mt-1 fw-bold"> 自我背景</p>
+                                </li>
+                                <li class="nav-item">
+                                    <button type="button" id= "actionQ1" class="btn btn-outline-secondary btn-sm d-none d-sm-inline fs-6" style="text-decoration: none;">清空</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <label class="card-title">與申請項目有貼合的部分,XXXXX詳細介紹這欄位應該要填入甚麼,讓使用者可以輸入更貼合所需的資料</label>
+                        </div>
+                        <textarea class="form-control" id="Question1"  style="resize: none" placeholder="" rows="6"></textarea>
+                    </div>
+                    <div class="card my-3" style="width: 32rem;">
+                        <div class="card-header">
+                            <ul class="nav nav-pills card-header-pills">
+                                <li class="nav-item">
+                                    <p class="text mb-0 mt-1 fw-bold ps-2"> 研究計劃方向</p>
+                                </li>
+                                <li class="nav-item">
+                                    <button type="button" id= "actionQ2" class="btn btn-outline-secondary btn-sm d-none d-sm-inline fs-6" style="text-decoration: none;">清空</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <label class="card-title">與申請項目有貼合的部分,XXXXX詳細介紹這欄位應該要填入甚麼,讓使用者可以輸入更貼合所需的資料</label>
+                        </div>
+                        <textarea class="form-control" id="Question2" style="resize: none" placeholder="" rows="6"></textarea>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card my-3" style="width: 32rem;">
+                        <div class="card-header">
+                            <ul class="nav nav-pills card-header-pills">
+                                <li class="nav-item">
+                                    <p class="text mb-0 mt-1 fw-bold ps-2"> 曾經參加過的項目</p>
+                                </li>
+                                <li class="nav-item">
+                                    <button type="button" id= "actionQ3" class="btn btn-outline-secondary btn-sm d-none d-sm-inline fs-6" style="text-decoration: none;">清空</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <label class="card-title">與申請項目有貼合的部分,XXXXX詳細介紹這欄位應該要填入甚麼,讓使用者可以輸入更貼合所需的資料</label>
+                        </div>
+                        <textarea class="form-control" id="Question3" style="resize: none" placeholder="" rows="6"></textarea>
+                    </div>
+                    <div class="card my-3" style="width: 32rem;">
+                        <div class="card-header">
+                            <ul class="nav nav-pills card-header-pills">
+                                <li class="nav-item">
+                                    <p class="text mb-0 mt-1 fw-bold ps-2"> 未來的方向</p>
+                                </li>
+                                <li class="nav-item">
+                                    <button type="button" id= "actionQ4" class="btn btn-outline-secondary btn-sm d-none d-sm-inline fs-6" style="text-decoration: none;">清空</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <label class="card-title">與申請項目有貼合的部分,XXXXX詳細介紹這欄位應該要填入甚麼,讓使用者可以輸入更貼合所需的資料</label>
+                        </div>
+                        <textarea class="form-control" id="Question4" style="resize: none" placeholder="" rows="6"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-5">
+                <div class="col">
+                    <div class="card my-3" style="width: 70rem;">
+                        <div class="card-header">
+                            <ul class="nav nav-pills card-header-pills">
+                                <li class="nav-item">
+                                    <p class="text mb-0 mt-1 fw-bold ps-2"> 爲什麽選擇這個項目</p>
+                                </li>
+                                <li class="nav-item">
+                                    <button type="button" id= "actionQ5" class="btn btn-outline-secondary btn-sm d-none d-sm-inline fs-6" style="text-decoration: none;">清空</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <label class="card-title">與申請項目有貼合的部分,XXXXX詳細介紹這欄位應該要填入甚麼,讓使用者可以輸入更貼合所需的資料</label>
+                        </div>
+                        <textarea class="form-control" id="Question5" style="resize: none;" placeholder="" rows="6"></textarea>
+                    </div>
+                    <div class="col text-center" style="width: 70rem;">
+                        <label class="text text-secondary p-2 lead">按下<b>確認</b>並等待一段時間</label>
+                    </div>
+                    <div class="d-grid gap-4 d-md-flex justify-content-md-center p-2">
+                        <button class="btn btn-primary btn-md btn-success me-5" id = CheckOn type="submit" value="傳送資料">確認送出</button>
+                    </div>
+                    <div class="d-grid gap-4 d-md-flex justify-content-md-center p-2">
+                        <button class="btn btn-primary btn-md btn-secondary me-5" id = actionClearAll type="submit" value="清空資料">清空資料</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="container-fluid  bd-light">
+       <!--建立一個row，這樣下方的欄位才能用col切開(col 1、2、3)-->
+        <div class="row gx-4 ms-5">
+            <!--col 2 用於輸入文本與輸出結果欄位樣式，style原先以block表示，當在導航欄按下About me就會轉成none表示-->
+            <div class="col-5 fw-bold text-end">
+                
+                <h2 class="fw-bold text-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="currentColor" class="bi bi-arrow-bar-right mb-2" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8Zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5Z"/>
+                    </svg> 您的結果顯示在這裡
+                </h2>
+                <img src="/static/images/family.png" alt="" width="120" height="100"></img>
+            </div>
+            <div class="col-5">
+                <div class="input-group mb-3">
+                    <textarea class="form-control fw-bold bg-white" style="resize: none " id="Get_Result" placeholder="" name="outputValue" rows="20" readonly></textarea>
+                </div>
+            </div>
+        </div>
+        <!--col3 用於介紹文本的樣式，style原先以none表示，當在導航欄按下Work就會轉成block表示-->
+        <!--還未修改的部分-->
+        <div class="col py-3" id="aboutText" style="display: none;">
+            <div class="col-5">
+                <label>關於我們 :</label>
+                <br>
+                    起司越大，洞就越多
+                <label>How to use :</label>
+                <br>
+                <div class="input-group mb-3">
+                    <textarea class="form-control fw-bold" id="howToUse" style="height: 500px; resize: none " aria-label="With textarea" placeholder="洞越多，起司越少" readonly></textarea>
+                </div>
+            </div>
+        </div>
     </div>
+    <hr width="100%">
     <!-- 引入内部JavaScript文件 -->
     <script  type="text/javascript" src="/static/js/index.js"></script>
 </body>
