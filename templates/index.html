@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant-TW">
 <head>
     <meta charset="utf-8">
     <title>雲端期末 Demo</title>
@@ -7,19 +7,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <!--字型-思源黑體操作:https://www.wfublog.com/2019/01/noto-sans-serif-traditional-chinese-web-font_11.html-->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&amp;display=swap" rel="stylesheet"/>
-    <!--減少網頁仔入時間用，還在測試-->
-<!--    <style>
-        .anthorfont {
-        font-family: 'Noto Sans TC', '微軟正黑體', 'Microsoft JhengHei', sans-serif;
-        }
-    </style>
--->
+    <link rel="stylesheet" type="text/css" href="/static/css/template.css">
 </head>        
 <body>
     <!--上方導航欄位-->
     <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-dark" style="position: sticky;" aria-label="Secondary navigation">
         <div class="container-fluid">
-            <a class="navbar-brand text-light navbar-text fw-bold" href="#workArea">
+            <a class="navbar-brand text-light navbar-text fw-bold" href="#action">
                 <img src="/static/images/cat.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">
                 Auto Resume Generator
             </a>
@@ -62,14 +56,24 @@
                 </div>
             </div>
         </div>
-        <div class="container align-content-center pb-1" id="action" style="display: block;">
-            <div class="row m-5">
-                <div class="col">
+        <div class="container pb-1" id="action" style="display: block;">
+            <div class="row m-5 justify-content-between">
+                <div class="row">
+                    <div class="col text-start">
+                    <h2 class="fw-bold">可以選擇，一次性、或是單獨送出</h2>
+                    <label class="fw-bold">單獨送出結果較為精確，而一次性送出可以更快的獲得結果</label>
+                </div>
+                <div class="col text-end">
+                    <h2 class="fw-bold">也可以一來一回，使履歷的更加精確</h2>
+                    <label class="fw-bold">多次來回修改，達到自己想要的目標</label>
+                </div>  
+                </div>
+                <div class="col-6">
                     <div class="card my-3" style="width: 32rem;">
                         <div class="card-header">
-                            <ul class="nav nav-pills card-header-pills ps-2">
-                                <li class="nav-item">
-                                    <p class="text mb-0 mt-1 fw-bold"> 自我背景</p>
+                            <ul class="nav nav-pills card-header-pills justify-content-between">
+                                <li class="nav-item pt-1 mb-1">
+                                    <p class="text mb-0 mt-1 fw-bold ps-2">1. 自我介紹</p>
                                 </li>
                                 <li class="nav-item">
                                     <button type="button" id= "actionQ1" class="btn btn-outline-secondary btn-sm d-none d-sm-inline fs-6" style="text-decoration: none;">清空</button>
@@ -80,12 +84,20 @@
                             <label class="card-title">與申請項目有貼合的部分,XXXXX詳細介紹這欄位應該要填入甚麼,讓使用者可以輸入更貼合所需的資料</label>
                         </div>
                         <textarea class="form-control" id="Question1"  style="resize: none" placeholder="" rows="6"></textarea>
+                        <div class="opb card-footer text-center d-grid">
+                            <button type="button" id = "actionSingleQ1" class="opb btn btn-outline-light text-black">
+                                送出
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                     <div class="card my-3" style="width: 32rem;">
                         <div class="card-header">
-                            <ul class="nav nav-pills card-header-pills">
-                                <li class="nav-item">
-                                    <p class="text mb-0 mt-1 fw-bold ps-2"> 研究計劃方向</p>
+                            <ul class="nav nav-pills card-header-pills justify-content-between">
+                                <li class="nav-item  pt-1 mb-1">
+                                    <p class="text mb-0 mt-1 fw-bold ps-2">2. 研究計劃方向</p>
                                 </li>
                                 <li class="nav-item">
                                     <button type="button" id= "actionQ2" class="btn btn-outline-secondary btn-sm d-none d-sm-inline fs-6" style="text-decoration: none;">清空</button>
@@ -96,14 +108,22 @@
                             <label class="card-title">與申請項目有貼合的部分,XXXXX詳細介紹這欄位應該要填入甚麼,讓使用者可以輸入更貼合所需的資料</label>
                         </div>
                         <textarea class="form-control" id="Question2" style="resize: none" placeholder="" rows="6"></textarea>
+                        <div class="opb card-footer text-center d-grid">
+                            <button type="button" id = "actionSingleQ2" class="opb btn btn-outline-light text-black">
+                                送出
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-6 ps-5">
                     <div class="card my-3" style="width: 32rem;">
                         <div class="card-header">
-                            <ul class="nav nav-pills card-header-pills">
-                                <li class="nav-item">
-                                    <p class="text mb-0 mt-1 fw-bold ps-2"> 曾經參加過的項目</p>
+                            <ul class="nav nav-pills card-header-pills justify-content-between">
+                                <li class="nav-item  pt-1 mb-1">
+                                    <p class="text mb-0 mt-1 fw-bold ps-2">3. 曾經參加過的項目</p>
                                 </li>
                                 <li class="nav-item">
                                     <button type="button" id= "actionQ3" class="btn btn-outline-secondary btn-sm d-none d-sm-inline fs-6" style="text-decoration: none;">清空</button>
@@ -114,12 +134,20 @@
                             <label class="card-title">與申請項目有貼合的部分,XXXXX詳細介紹這欄位應該要填入甚麼,讓使用者可以輸入更貼合所需的資料</label>
                         </div>
                         <textarea class="form-control" id="Question3" style="resize: none" placeholder="" rows="6"></textarea>
+                        <div class="opb card-footer text-center d-grid">
+                            <button type="button" id = "actionSingleQ3" class="opb btn btn-outline-light text-black">
+                                送出
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                     <div class="card my-3" style="width: 32rem;">
                         <div class="card-header">
-                            <ul class="nav nav-pills card-header-pills">
-                                <li class="nav-item">
-                                    <p class="text mb-0 mt-1 fw-bold ps-2"> 未來的方向</p>
+                            <ul class="nav nav-pills card-header-pills justify-content-between">
+                                <li class="nav-item  pt-1 mb-1">
+                                    <p class="text mb-0 mt-1 fw-bold ps-2">4. 未來的方向</p>
                                 </li>
                                 <li class="nav-item">
                                     <button type="button" id= "actionQ4" class="btn btn-outline-secondary btn-sm d-none d-sm-inline fs-6" style="text-decoration: none;">清空</button>
@@ -130,16 +158,24 @@
                             <label class="card-title">與申請項目有貼合的部分,XXXXX詳細介紹這欄位應該要填入甚麼,讓使用者可以輸入更貼合所需的資料</label>
                         </div>
                         <textarea class="form-control" id="Question4" style="resize: none" placeholder="" rows="6"></textarea>
+                        <div class="opb card-footer text-center d-grid">
+                            <button type="button" id = "actionSingleQ4" class="opb btn btn-outline-light text-black">
+                                送出
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="row m-5">
                 <div class="col">
-                    <div class="card my-3" style="width: 70rem;">
+                    <div class="card my-3" style="width: 72rem;">
                         <div class="card-header">
                             <ul class="nav nav-pills card-header-pills">
-                                <li class="nav-item">
-                                    <p class="text mb-0 mt-1 fw-bold ps-2"> 爲什麽選擇這個項目</p>
+                                <li class="nav-item nav-item  pt-1 mb-1">
+                                    <p class="text mb-0 mt-1 fw-bold ps-2">5. 爲什麽選擇這個項目</p>
                                 </li>
                                 <li class="nav-item">
                                     <button type="button" id= "actionQ5" class="btn btn-outline-secondary btn-sm d-none d-sm-inline fs-6" style="text-decoration: none;">清空</button>
@@ -150,25 +186,68 @@
                             <label class="card-title">與申請項目有貼合的部分,XXXXX詳細介紹這欄位應該要填入甚麼,讓使用者可以輸入更貼合所需的資料</label>
                         </div>
                         <textarea class="form-control" id="Question5" style="resize: none;" placeholder="" rows="6"></textarea>
+                        <div class="opb card-footer text-center d-grid">
+                            <button type="button" id = "actionSingleQ5" class="opb btn btn-outline-light text-black">
+                                送出
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
-                    <div class="col text-center" style="width: 70rem;">
-                        <label class="text text-secondary p-2 lead">按下<b>確認</b>並等待一段時間</label>
+                    <div class="col text-start mt-5">
+                        <!--<label class="text text-secondary p-2 lead">按下<b>確認</b>並等待一段時間</label>style="width: 70rem;"-->
+                        <button class="btn btn-primary btn-md me-5" style ="background-color: rgb(33, 99, 232);"id = CheckOn type="submit" value="傳送資料">一次送出</button>
+                        <button class="btn btn-primary btn-md btn-secondary" id = actionClearAll type="submit" value="清空資料">清空所有資料</button>
+                    </div>
+                   <!--<div class="d-grid gap-4 d-md-flex justify-content-md-center p-2">    
                     </div>
                     <div class="d-grid gap-4 d-md-flex justify-content-md-center p-2">
-                        <button class="btn btn-primary btn-md btn-success me-5" id = CheckOn type="submit" value="傳送資料">確認送出</button>
                     </div>
-                    <div class="d-grid gap-4 d-md-flex justify-content-md-center p-2">
-                        <button class="btn btn-primary btn-md btn-secondary me-5" id = actionClearAll type="submit" value="清空資料">清空資料</button>
+                    --> 
+                </div>
+            </div>
+        </div>
+    <div class="jumbotron jumbotron-fluid text-center text-secondary pt-3 border-top border-secondary" style="background-color: rgb(248, 249, 250);">
+        <div class="container-fluid mt-4">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <h2 class="fw-bold text-secondary display-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="currentColor" class="bi bi-cup-hot  mb-2" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M.5 6a.5.5 0 0 0-.488.608l1.652 7.434A2.5 2.5 0 0 0 4.104 16h5.792a2.5 2.5 0 0 0 2.44-1.958l.131-.59a3 3 0 0 0 1.3-5.854l.221-.99A.5.5 0 0 0 13.5 6H.5ZM13 12.5a2.01 2.01 0 0 1-.316-.025l.867-3.898A2.001 2.001 0 0 1 13 12.5ZM2.64 13.825 1.123 7h11.754l-1.517 6.825A1.5 1.5 0 0 1 9.896 15H4.104a1.5 1.5 0 0 1-1.464-1.175Z"/>
+                            <path d="m4.4.8-.003.004-.014.019a4.167 4.167 0 0 0-.204.31 2.327 2.327 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.593.593 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3.31 3.31 0 0 1-.202.388 5.444 5.444 0 0 1-.253.382l-.018.025-.005.008-.002.002A.5.5 0 0 1 3.6 4.2l.003-.004.014-.019a4.149 4.149 0 0 0 .204-.31 2.06 2.06 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.593.593 0 0 0-.09-.252A4.334 4.334 0 0 0 3.6 2.8l-.01-.012a5.099 5.099 0 0 1-.37-.543A1.53 1.53 0 0 1 3 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a5.446 5.446 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 4.4.8Zm3 0-.003.004-.014.019a4.167 4.167 0 0 0-.204.31 2.327 2.327 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.593.593 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3.31 3.31 0 0 1-.202.388 5.444 5.444 0 0 1-.253.382l-.018.025-.005.008-.002.002A.5.5 0 0 1 6.6 4.2l.003-.004.014-.019a4.149 4.149 0 0 0 .204-.31 2.06 2.06 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.593.593 0 0 0-.09-.252A4.334 4.334 0 0 0 6.6 2.8l-.01-.012a5.099 5.099 0 0 1-.37-.543A1.53 1.53 0 0 1 6 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a5.446 5.446 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 7.4.8Zm3 0-.003.004-.014.019a4.077 4.077 0 0 0-.204.31 2.337 2.337 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.593.593 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3.198 3.198 0 0 1-.202.388 5.385 5.385 0 0 1-.252.382l-.019.025-.005.008-.002.002A.5.5 0 0 1 9.6 4.2l.003-.004.014-.019a4.149 4.149 0 0 0 .204-.31 2.06 2.06 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.593.593 0 0 0-.09-.252A4.334 4.334 0 0 0 9.6 2.8l-.01-.012a5.099 5.099 0 0 1-.37-.543A1.53 1.53 0 0 1 9 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a5.446 5.446 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 10.4.8Z"/>
+                        </svg>  稍等一會，結果會產出在下方
+                    </h2>
+                    <p>喝杯咖啡，喘口氣然後...等待結果囉:P</p>
+                </div>
+                <div class="col-6 mt-2" id ="outputArea" style="display: block;">
+                    <div class="input-group mb-3">
+                        <textarea class="form-control fw-bold bg-white border-2" style="resize: none " id="Get_Result" placeholder="" name="outputValue" rows="20" readonly></textarea>
+                    </div>
+                </div>
+                <!--當在導航欄按下Work就會轉成block表示-->
+                <!--還未修改的部分-->
+                <div class="col-6 text-start" id="aboutText" style="display: none;">
+                    <label class="text mb-2 fw-bold">關於我們 : </label>
+                        <p class="text">我們是誰?  馬卡巴卡是一家獨特而令人印象深刻的場所，我們是一家集合了各種創意和激情的文化館。無論您是當地居民還是遠道而來的遊客，馬卡巴卡都歡迎您來探索我們的奇妙世界。我們鼓勵每一個人都能夠發揮自己的創造力，
+                            探索不同的藝術形式，並與他人分享這種美妙的體驗。</p>
+                        <p class="text">為何叫做馬卡巴卡? 您可能好奇為什麼我們選擇了這個獨特的名字。"馬卡巴卡"這個名字代表著我們對於多元文化的態度和熱愛。這個詞在當地語言中有著多種解釋，其中包括"聚集"、"創造"和"歡笑"。這正是我們所追求的，為人們
+                            提供一個聚集、創造和歡樂的場所。</p>
+                        <p class="text ">最後，我們的團隊值得稱讚。我們的工作人員充滿熱情和專業知識，致力於為每位訪客提供最好的體驗</p>
+                    <br>
+                    <label>How to use :</label>
+                    <br>
+                    <div class="input-group mb-3">
+                        <textarea class="form-control fw-bold" id="howToUse" style="height: 500px; resize: none " aria-label="With textarea" placeholder="C8763" readonly></textarea>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+<!--備份用，之後會刪除   
     <div class="container-fluid  bd-light">
-       <!--建立一個row，這樣下方的欄位才能用col切開(col 1、2、3)-->
         <div class="row gx-4 ms-5">
-            <!--col 2 用於輸入文本與輸出結果欄位樣式，style原先以block表示，當在導航欄按下About me就會轉成none表示-->
             <div class="col-5 fw-bold text-end">
-                
                 <h2 class="fw-bold text-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="currentColor" class="bi bi-arrow-bar-right mb-2" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8Zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5Z"/>
@@ -182,21 +261,8 @@
                 </div>
             </div>
         </div>
-        <!--col3 用於介紹文本的樣式，style原先以none表示，當在導航欄按下Work就會轉成block表示-->
-        <!--還未修改的部分-->
-        <div class="col py-3" id="aboutText" style="display: none;">
-            <div class="col-5">
-                <label>關於我們 :</label>
-                <br>
-                    起司越大，洞就越多
-                <label>How to use :</label>
-                <br>
-                <div class="input-group mb-3">
-                    <textarea class="form-control fw-bold" id="howToUse" style="height: 500px; resize: none " aria-label="With textarea" placeholder="洞越多，起司越少" readonly></textarea>
-                </div>
-            </div>
-        </div>
     </div>
+--> 
     <hr width="100%">
     <!-- 引入内部JavaScript文件 -->
     <script  type="text/javascript" src="/static/js/index.js"></script>
