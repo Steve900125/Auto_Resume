@@ -54,7 +54,9 @@ document.getElementById('actionQ3').onclick = function() {actionClear(3)};
 document.getElementById('actionQ4').onclick = function() {actionClear(4)};
 document.getElementById('actionQ5').onclick = function() {actionClear(5)};
 
-
+//
+//id為actionSingleQ1~5用於每一項欄位單獨送出資料，id為CheckOn是為一次性送出所有資料
+//目前actionSingleQ1~5僅在html使用，後台Js還沒處理。
 //document.getElementById("actionClearAll").onclick = function() {actionClearAll()};
 //submit
 function CheckOn()
@@ -123,24 +125,24 @@ function actionClearAll()
 // 顯示Aboutme文本，隱藏Work文本
 function showAboutmeText()
 {
-    var workArea = document.getElementById('action');
+    var outputArea = document.getElementById('outputArea');
     var aboutText = document.getElementById('aboutText');
     if (aboutText.style.display == 'none')
     {
         aboutText.style.display = 'block';
-        workArea.style.display = 'none';
+        outputArea.style.display = 'none';
     }
 }
 
 // 顯示Work文本，隱藏Aboutme文本
 function hideAboutmeText()
 {
-    var workArea = document.getElementById('action');
+    var outputArea = document.getElementById('outputArea');
     var aboutText = document.getElementById('aboutText');
     if (aboutText.style.display == 'block')
     {
         aboutText.style.display = 'none';
-        workArea.style.display = 'block';
+        outputArea.style.display = 'block';
     }
 }
 
